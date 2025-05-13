@@ -1,0 +1,42 @@
+# Entornos virtuales
+venv/
+ENV/
+env/
+
+# Archivos de Python compilados
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Configuraciones de editores
+.vscode/
+.idea/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Dependencias de paquetes
+*.egg-info/
+.eggs/
+*.egg
+
+# Logs
+*.log
+
+# Variables de entorno
+.env
+
+# Artefactos de build
+build/
+dist/
+*.tar.gz
+
+# Bases de datos SQLite
+*.sqlite3
+*.db
+
+# Migraciones (por si usas Alembic)
+alembic/

@@ -27,15 +27,15 @@
 - [ ] [#010] Consultar historial por fecha o tipo
 - [ ] [#009] Guardar resultados en base de datos (SQLite o similar)
 - [ ] [#008] Validar errores y retornar respuestas JSON coherentes
-- [ ] [#007] Usar SymPy para resolver integrales definidas e indefinidas
-- [ ] [#006] Crear modelos Pydantic para entradas/salidas
-- [ ] [#005] Crear ruta /history para devolver historial
 
 ## WID
-- [~] [#034] Inicia el control de versiones con git
+- [~] [#006] Crear modelos Pydantic para entradas/salidas
+- [~] [#005] Crear ruta /history para devolver historial
 - [~] [#004] Crear rutas /defined y /undefined con métodos POST
 - [~] [#003] Definir main.py y FastAPI() app principal
-- [~] [#002] Crear entorno virtual y archivos: requirements.txt, .env, README.md
-- [~] [#001] Organizar carpetas: app/api, app/templates, app/static, tests/
 
 ## DONE
+- [x] [#007] Usar SymPy para resolver integrales definidas e indefinidas
+- [x] [#002] Crear entorno virtual y archivos: requirements.txt, .env, README.md
+- [x] [#001] Organizar carpetas: app/api, app/templates, app/static, tests/
+- [x] [#034] Inicia el control de versiones con git
