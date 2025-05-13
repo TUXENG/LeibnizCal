@@ -32,10 +32,10 @@
 - [ ] [#005] Crear ruta /history para devolver historial
 
 ## WID
-- [~] [#034] Inicia el control de versiones con git
 - [~] [#004] Crear rutas /defined y /undefined con métodos POST
 - [~] [#003] Definir main.py y FastAPI() app principal
-- [~] [#002] Crear entorno virtual y archivos: requirements.txt, .env, README.md
-- [~] [#001] Organizar carpetas: app/api, app/templates, app/static, tests/
 
 ## DONE
+- [x] [#002] Crear entorno virtual y archivos: requirements.txt, .env, README.md
+- [x] [#001] Organizar carpetas: app/api, app/templates, app/static, tests/
+- [x] [#034] Inicia el control de versiones con git
