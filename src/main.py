@@ -6,8 +6,7 @@ from fastapi.templating import Jinja2Templates
 from src.config import settings
 from src.defined.router import router as defined_router
 from src.undefined.router import router as undefined_router
-# si tienes history:
-# from src.history.router import router as history_router
+from src.history.router import router as history_router
 
 app = FastAPI(
     title=settings.app_name,
@@ -30,7 +29,7 @@ templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 # Incluir routers
 app.include_router(defined_router)    # monta en /defined
 app.include_router(undefined_router)  # monta en /undefined
-# app.include_router(history_router)  # monta en /history
+app.include_router(history_router)  # monta en /history
 
 @app.get("/")
 async def root():
