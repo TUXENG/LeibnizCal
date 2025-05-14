@@ -1,22 +1,43 @@
-# src/defined/router.py
-from fastapi import APIRouter, HTTPException
-from .schemas import DefinedRequest, IntegralResponse
-from .service import solve_defined
+from fastapi import APIRouter, Request, HTTPException
+from fastapi.templating import Jinja2Templates
+from src.config import settings
+from .schemas import DefinedIntegralRequest
+from .service import resolver_integral_definida
 
-router = APIRouter(prefix="/defined", tags=["defined"])
+router = APIRouter()
+templates = Jinja2Templates(directory="src/templates")
 
-@router.post("/", response_model=IntegralResponse)
-async def compute_defined(req: DefinedRequest):
+@router.get("/defined", name="defined.compute_defined")
+async def defined_form(request: Request):
+    # Simplemente muestra el formulario vacío
+    return templates.TemplateResponse(
+        "defined.html",
+        {
+            "request": request,
+            "settings": settings,
+            "active_tab": "defined",
+            "result": None
+        }
+    )
+
+@router.post("/defined", name="defined.compute_defined")
+async def compute_defined(request: Request, form: DefinedIntegralRequest):
     try:
-        res = solve_defined(
-            req.expression, 
-            req.variable, 
-            req.lower_limit, 
-            req.upper_limit
+        res = resolver_integral_definida(
+            form.expression, 
+            form.variable, 
+            form.lower_limit, 
+            form.upper_limit
             )
-        return {
-            "input": req.model_dump(), 
+    except ValueError as e:
+        raise HTTPException(400, detail=str(e))
+
+    return templates.TemplateResponse(
+        "defined.html",
+        {
+            "request": request,
+            "settings": settings,
+            "active_tab": "defined",
             "result": res
-            }
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        }
+    )

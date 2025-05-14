@@ -15,6 +15,10 @@ app = FastAPI(
 
 BASE_DIR = Path(__file__).resolve().parent.parent  # apunta a la carpeta raíz LeibnizCal
 
+# Apuntar templates a la carpeta raíz/templates
+templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
+
+
 # Montar carpeta static que queda en la raíz
 app.mount(
     "/static",
@@ -22,8 +26,6 @@ app.mount(
     name="static"
 )
 
-# Apuntar templates a la carpeta raíz/templates
-templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 
 # Incluir routers
