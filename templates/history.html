@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="historial">
+    <h2>Historial</h2>
+
+    {% if entries %}
+      <form method="post" action="/history/clear">
+        <button type="submit" class="borrar">Borrar historial</button>
+      </form>
+
+      <ul class="lista-historial">
+        {% for entry in entries %}
+          <li>
+            <strong>{{ entry.type | capitalize }}:</strong> 
+            ∫ {{ entry.expression }} → {{ entry.result }} <br />
+            <small><em>{{ entry.timestamp }}</em></small>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No hay entradas en el historial.</p>
+    {% endif %}
+  </section>
+{% endblock %}

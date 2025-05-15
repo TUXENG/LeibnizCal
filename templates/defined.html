@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="formulario">
+    <h2>Integral definida</h2>
+    <form method="post">
+      <label for="expression">Expresión:</label>
+      <input
+        type="text"
+        id="expression"
+        name="expression"
+        placeholder="Ej: sin(x)/x"
+        required
+      />
+
+      <label for="variable">Variable:</label>
+      <input
+        type="text"
+        id="variable"
+        name="variable"
+        placeholder="Ej: x"
+        required
+      />
+
+      <label for="lower_limit">Límite inferior:</label>
+      <input
+        type="text"
+        id="lower_limit"
+        name="lower_limit"
+        placeholder="Ej: 0"
+        required
+      />
+
+      <label for="upper_limit">Límite superior:</label>
+      <input
+        type="text"
+        id="upper_limit"
+        name="upper_limit"
+        placeholder="Ej: pi"
+        required
+      />
+
+      <button type="submit">Calcular</button>
+    </form>
+
+    {% if result %}
+      <div class="resultado">
+        <h3>Resultado:</h3>
+        <p>{{ result }}</p>
+      </div>
+    {% endif %}
+  </section>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="formulario">
+    <h2>Integral indefinida</h2>
+    <form method="post">
+      <label for="expression">Expresión:</label>
+      <input
+        type="text"
+        id="expression"
+        name="expression"
+        placeholder="Ej: e^x"
+        required
+      />
+
+      <label for="variable">Variable:</label>
+      <input
+        type="text"
+        id="variable"
+        name="variable"
+        placeholder="Ej: x"
+        required
+      />
+
+      <button type="submit">Calcular</button>
+    </form>
+
+    {% if result %}
+      <div class="resultado">
+        <h3>Resultado:</h3>
+        <p>{{ result }}</p>
+      </div>
+    {% endif %}
+  </section>
+{% endblock %}
